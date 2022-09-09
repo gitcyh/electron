@@ -1,0 +1,29 @@
+body{
+    padding: 0;
+    margin:0;
+    user-select: none;
+    height: 100%;
+}
+html{
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+.el-button{
+    cursor: pointer !important;
+}
+.el-button--primary{
+    background: #409EFF !important;
+}
+.el-button--danger{
+    background: #f56c6c !important;
+}
+
+.el-button--primary:hover{
+    background: rgb(13, 132, 250) !important;
+}
+
+.el-button--danger:hover{
+    background: #f71616 !important;
+}
