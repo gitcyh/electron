@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path')
+import { storeToRefs } from 'pinia';
 import ffmpeg from '../ffmpeg/ffmpeg';
+import {useFileInfoStore} from '../pinia/fileInfo';
+
+
+
 
 export default class FileConvert {
-    constructor() {
-
-    }
-
     // 调用ffprobe查询视频可用信息如时长分辨率等
     static getFileInfo(file) {
         let promise = new Promise((resolve, reject) => {
@@ -49,10 +50,7 @@ export default class FileConvert {
     }
 
     static getFile(e, file) {
-        // let fileObj = [];
-        // if (file.length == 0) {
-        //     return fileObj;
-        // }
+        const store = useFileInfoStore();
         return new Promise((resolve,reject)=>{
             let fileObj = [];
             let promise = [];
@@ -84,6 +82,8 @@ export default class FileConvert {
                         selectType: "mp4",//要转换的格式默认mp4
                     };
                     fileObj.push(obj);
+                    store.fileList.push(obj);
+                    console.log(store);
                 })
                 resolve(fileObj);
             }).catch(err => {

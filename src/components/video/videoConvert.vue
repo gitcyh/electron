@@ -2,7 +2,7 @@
   <div class="main">
     <div class="top">
       <div class="left">
-        left
+        <videoMenu />
       </div>
       <div class="main_right">
         <div class="nav">
@@ -38,6 +38,7 @@ import { UploadFilled } from '@element-plus/icons-vue';
 import videoHead from './videoHead.vue';
 import videoFooter from './videoFooter.vue';
 import videoList from "./videoList.vue";
+import videoMenu from './videoMenu.vue';
 import FileConvert from '../FileConvert.js';
 
 import {defineComponent, reactive,ref} from 'vue'
@@ -49,6 +50,7 @@ export default defineComponent({
     UploadFilled:UploadFilled,
     videoHead:videoHead,
     videoFooter:videoFooter,
+    videoMenu:videoMenu
   },
 
   setup(){
@@ -161,15 +163,17 @@ export default defineComponent({
 }
 .left{
   width: 12%;
-  border: 1px solid red;
+  border-right:1px solid #ccc;
+  border-top:1px solid #ccc;
+  overflow-y: auto;
 }
 .nav{
   height: 30px;
-  border: 1px solid red;
   display: flex;
   align-items: center;
   padding-left: 4px;
   padding-right: 4px;
+  border-top:1px solid #ccc;
 }
 
 .list{
@@ -181,7 +185,7 @@ export default defineComponent({
 }
 .main_footer{
   height: 5%;
-  border: 1px solid rgb(19, 207, 19);
+  border-top: 1px solid #ccc;
 }
 .upload-demo{
   margin: auto;
